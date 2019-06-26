@@ -8,7 +8,13 @@ struct Numeros {
 
 int main() {
 	
-	FILE *f = fopen("Texto.txt","r");
+	FILE *f = fopen("Texto.txt","w");
+		fprintf(f,"%d",2647);
+		fprintf(f,"%s"," ");
+		fprintf(f,"%d",3956);
+	fclose(f);
+	
+	f = fopen("Texto.txt","r");
 		struct Numeros valores;
 		fscanf(f,"%d",&(valores.a));
 		fscanf(f,"%d",&(valores.b));
@@ -29,6 +35,3 @@ int main() {
 		
 	return 0;
 }
-
-//Texto.txt
-//2647 3956
