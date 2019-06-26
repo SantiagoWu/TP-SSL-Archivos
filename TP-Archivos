@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Numeros {
+	int a;
+	int b;
+};
+
+int main() {
+	
+	FILE *f = fopen("Texto.txt","r");
+		struct Numeros valores;
+		fscanf(f,"%d",&(valores.a));
+		fscanf(f,"%d",&(valores.b));
+	fclose(f);
+	
+	f = fopen("Data.bin","wb");
+		fwrite(&valores,sizeof(valores),1,f);
+	fclose(f);
+	
+	f = fopen("Data.bin","rb");
+		struct Numeros lectura;
+		fread(&lectura,sizeof(lectura),1,f);
+	fclose(f);
+	
+	printf("%d",lectura.a);
+	printf("%s"," ");
+	printf("%d",lectura.b);
+		
+	return 0;
+}
